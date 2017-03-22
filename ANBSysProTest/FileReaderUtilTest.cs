@@ -18,6 +18,10 @@ namespace ANBSysProTest
                 long topNNumberofWords = 5;
                 string[] wordsToSkip = new string[] { "is", "was", "the" };
 
+                Assert.IsFalse(string.IsNullOrEmpty(filePath), "Please enter the filepath");
+                Assert.IsFalse(topNNumberofWords < 1, "Please enter the top n words more than 1");
+                Assert.IsFalse(!File.Exists(filePath), "Please enter the valida filepath");
+
                 FileReaderUtil.CalculateWordOccurences(filePath, topNNumberofWords, wordsToSkip);
             }
             catch (FileNotFoundException ex)
